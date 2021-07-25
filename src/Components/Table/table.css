@@ -1,0 +1,36 @@
+.table__wrapper {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	margin-top: 20px;
+}
+
+.table {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	max-width: 270px;
+	width: 100%;
+}
+
+.table__result,
+.table__name {
+	padding: 15px 0
+}
+
+.table__name {
+	width: 100%;
+
+	text-align: center;
+	background-color: var(--primary);
+	color: var(--white);
+}
+
+.table__result {
+	width: 100%;
+
+	text-align: center;
+	background-color: var(--white);
+}
