@@ -1,0 +1,25 @@
+.statistics {
+    position: relative;
+}
+
+.statistics__result {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-top: 20px;
+}
+
+.statistics__result--count,
+.statistics__result--time {
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.statistics__result--count {
+    color: var(--error);
+}
+
+.statistics__result--time {
+    color: var(--success);
+}
