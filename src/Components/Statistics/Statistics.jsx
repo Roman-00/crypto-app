@@ -1,27 +1,29 @@
 import React from 'react';
 
-// --------- Импортируем компоненты
+// -------------------------------------------------- Импортируем компоненты
 import { HTag } from '../HTag/HTag';
 import { Table } from '../Table/Table';
 import { Span } from '../Span/Span';
 
-// ---------------- Импортируем стили
+// -------------------------------------------------- Импортируем стили
 import './statistics.css';
 
 export const Statistics = ({data}) => {
-    // ---------------- Вычисляем среднее арифмитическое
+
+// -------------------------------------------------- Вычисляем среднее арифмитическое
     const totalAverage = data.reduce((sum, el) => (sum + el.value), 0) / data.length;
 
-    // ---------------- Вычисляем медиану
-        // ---------------- Сортируем массив по возврастанию
+// -------------------------------------------------- Вычисляем медиану
+    // -------------------------------------------------- Сортируем массив по возврастанию
     const dataSort = data.sort((a, b) => (a.value - b.value), 0);
-        // ---------------- Находим значение медианы
+
+// -------------------------------------------------- Находим значение медианы
     const medianRes = dataSort.length % 2 ? dataSort[parseInt(dataSort.length / 2)].value : (dataSort[dataSort.length / 2].value + dataSort[dataSort.length / 2 - 1].value) / 2;
 
-    // --------- Вычисляем Стандартное отклонение
+// --------------------------------------------------Вычисляем Стандартное отклонение
     const sigma = Math.sqrt(data.map(x => Math.pow(x.value - totalAverage,2)).reduce((a, b) => (a + b),0) / data.length);
 
-    // Найдем моду среди значений
+// -------------------------------------------------- Найдем моду среди значений
     const repetitions = data.reduce((acc, {value}) => {
 
         if (acc.hasOwnProperty(value)) {
@@ -36,7 +38,9 @@ export const Statistics = ({data}) => {
 
     const repsValues = Object.entries(repetitions)
         .filter(([_, value]) => value > 1)
-        .map(([num]) => num)
+        .map(([num]) => num);
+
+// -------------------------------------------------- Выводим время расчета данных
 
     return (
         <section className="statistics" id="statistics">
@@ -65,7 +69,7 @@ export const Statistics = ({data}) => {
                         Количество потерянных котировок:&nbsp; 0
                     </Span>
                     <Span className="statistics__result--time">
-                        Время расчета:&nbsp; 20s
+                        Время расчета: {new Date().toLocaleString()}
                     </Span>
                 </div>
             </div>

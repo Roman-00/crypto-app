@@ -1,6 +1,6 @@
 import React from 'react';
 
-// ---------------- Импортируем стили
+// -------------------------------------------------- Импортируем стили
 import './table.css';
 
 export const Table = ( { name, children } ) => {

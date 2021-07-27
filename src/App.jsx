@@ -1,6 +1,6 @@
 import React from 'react';
 
-// --------- Импортируем компоненты
+// -------------------------------------------------- Импортируем компоненты
 import { Home } from './Layouts/Home';
 
 export const App = () => {
